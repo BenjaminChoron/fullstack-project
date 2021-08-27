@@ -65,7 +65,7 @@ POST {{host}}/posts/save
 Content-Type: application/json
 
 {
-    "id": 5,
+    "id": 6,
     "title": "Potatoes in Yukon",
     "subtitle": "Because nobody talk about it...",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
@@ -75,3 +75,45 @@ Content-Type: application/json
 
 ### Delete post
 DELETE {{host}}/posts/delete/5
+
+
+
+
+
+
+
+### All projects
+GET {{host}}/projects
+
+### A project
+GET {{host}}/projects/1
+
+### Add project
+POST {{host}}/projects/save
+Content-Type: application/json
+
+{
+    "title": "The New LinkedIn",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "github_link": "test",
+    "web_link": "test",
+    "user_id": 1,
+    "image_id": 2
+}
+
+### Update project
+POST {{host}}/projects/save
+Content-Type: application/json
+
+{
+    "id": 3,
+    "title": "The New Twitter",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "github_link": "test",
+    "web_link": "toto",
+    "user_id": 1,
+    "image_id": 4
+}
+
+### Delete project
+DELETE {{host}}/projects/delete/5

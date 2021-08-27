@@ -1,6 +1,7 @@
 const {Router} = require('express');
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
+const projectController = require('./controllers/projectController');
 
 const router = Router();
 
@@ -41,5 +42,16 @@ router.get('/posts/:id(\\d+)', postController.findOne);
 router.post('/posts/save', postController.save);
 
 router.delete('/posts/delete/:id(\\d+)', postController.delete);
+
+
+
+
+router.get('/projects', projectController.findAll);
+
+router.get('/projects/:id(\\d+)', projectController.findOne);
+
+router.post('/projects/save', projectController.save);
+
+router.delete('/projects/delete/:id(\\d+)', projectController.delete);
 
 module.exports = router;
