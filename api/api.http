@@ -1,0 +1,34 @@
+@host=http://localhost:5000/v1
+
+### Test
+GET {{host}}/hello
+
+### All users
+GET {{host}}/users
+
+### An user
+GET {{host}}/users/1
+
+### Add user
+POST {{host}}/users/save
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@test.com",
+    "password": "123456",
+    "avatar_id": 2
+}
+
+### Update user
+POST {{host}}/users/save
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@doe.com",
+    "password": "azerty",
+    "avatar_id": 3
+}

@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use(express.urlencoded({extended: true}));
 
-app.use(router);
+app.use('/v1', router);
 
 app.listen(port, () => {
     console.log(`Server started on http://localhost:${port}`);
