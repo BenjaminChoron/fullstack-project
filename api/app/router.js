@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const userController = require('./controllers/userController');
+const postController = require('./controllers/postController');
 
 const router = Router();
 
@@ -29,5 +30,16 @@ router.get('/users/:id(\\d+)', userController.findOne);
 router.post('/users/save', userController.save);
 
 router.delete('/users/delete/:id(\\d+)', userController.delete);
+
+
+
+
+router.get('/posts', postController.findAll);
+
+router.get('/posts/:id(\\d+)', postController.findOne);
+
+router.post('/posts/save', postController.save);
+
+router.delete('/posts/delete/:id(\\d+)', postController.delete);
 
 module.exports = router;

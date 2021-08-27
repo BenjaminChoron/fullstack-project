@@ -36,3 +36,42 @@ Content-Type: application/json
 
 ### Delete user
 DELETE {{host}}/users/delete/15
+
+
+
+
+
+
+### All posts
+GET {{host}}/posts
+
+### A post
+GET {{host}}/posts/1
+
+### Add post
+POST {{host}}/posts/save
+Content-Type: application/json
+
+{
+    "title": "Potatoes in Texas",
+    "subtitle": "Because nobody talk about it...",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "user_id": 1,
+    "image_id": 3
+}
+
+### Update post
+POST {{host}}/posts/save
+Content-Type: application/json
+
+{
+    "id": 5,
+    "title": "Potatoes in Yukon",
+    "subtitle": "Because nobody talk about it...",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "user_id": 1,
+    "image_id": 3
+}
+
+### Delete post
+DELETE {{host}}/posts/delete/5
