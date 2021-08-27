@@ -28,4 +28,6 @@ router.get('/users/:id(\\d+)', userController.findOne);
 */
 router.post('/users/save', userController.save);
 
+router.delete('/users/delete/:id(\\d+)', userController.delete);
+
 module.exports = router;

@@ -93,6 +93,18 @@ class User {
             }
         }
     }
+
+    static async delete(id) {
+        try {
+            await db.query(`DELETE FROM "user" WHERE id=$1`, [id]);
+        } catch(error) {
+            if(error.detail) {
+                throw new Error(error.detail)
+            } else {
+                throw error;
+            }
+        }
+    }
 };
 
 module.exports = User;

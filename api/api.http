@@ -26,9 +26,13 @@ POST {{host}}/users/save
 Content-Type: application/json
 
 {
+    "id": 15,
     "first_name": "John",
     "last_name": "Doe",
-    "email": "john@doe.com",
+    "email": "john@test.com",
     "password": "azerty",
     "avatar_id": 3
 }
+
+### Delete user
+DELETE {{host}}/users/delete/15
