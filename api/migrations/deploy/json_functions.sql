@@ -71,4 +71,16 @@ CREATE FUNCTION update_project(json) RETURNS void AS $$
 	WHERE id=($1->>'id')::int;
 $$ LANGUAGE SQL STRICT;
 
+
+
+
+CREATE FUNCTION new_message(myRecord json) RETURNS int AS $$
+	INSERT INTO "message" ("from", "email", "content")
+	VALUES (
+		myRecord->>'from',
+		myRecord->>'email',
+		myRecord->>'content'
+	) RETURNING id
+$$ LANGUAGE SQL STRICT;
+
 COMMIT;

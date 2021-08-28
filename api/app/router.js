@@ -2,6 +2,7 @@ const {Router} = require('express');
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const projectController = require('./controllers/projectController');
+const messageController = require('./controllers/messageController');
 
 const router = Router();
 
@@ -53,5 +54,16 @@ router.get('/projects/:id(\\d+)', projectController.findOne);
 router.post('/projects/save', projectController.save);
 
 router.delete('/projects/delete/:id(\\d+)', projectController.delete);
+
+
+
+
+router.get('/messages', messageController.findAll);
+
+router.get('/messages/:id(\\d+)', messageController.findOne);
+
+router.post('/messages/save', messageController.save);
+
+router.delete('/messages/delete/:id(\\d+)', messageController.delete);
 
 module.exports = router;

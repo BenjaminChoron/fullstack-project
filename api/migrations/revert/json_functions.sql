@@ -8,4 +8,9 @@ DROP FUNCTION update_user(json);
 DROP FUNCTION new_post(json);
 DROP FUNCTION update_post(json);
 
+DROP FUNCTION new_project(json);
+DROP FUNCTION update_project(json);
+
+DROP FUNCTION new_message(json);
+
 COMMIT;
