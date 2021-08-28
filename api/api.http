@@ -117,3 +117,26 @@ Content-Type: application/json
 
 ### Delete project
 DELETE {{host}}/projects/delete/5
+
+
+
+
+
+
+### All avatars
+GET {{host}}/avatars
+
+### A avatar
+GET {{host}}/avatars/1
+
+### Add avatar
+POST {{host}}/avatars/save
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "url": "http://trtsdfgsdgdf.fg/"
+}
+
+### Delete avatar
+DELETE {{host}}/avatars/delete/5
