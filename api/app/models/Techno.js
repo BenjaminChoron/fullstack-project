@@ -1,19 +1,19 @@
 const db = require('../database');
 
-class NoImageError extends Error {
+class NoTechnoError extends Error {
     constructor(id) {
-        super(`No image with id ${id}`);
+        super(`No techno with id ${id}`);
     }
 }
 
 /**
- * @typedef Image
+ * @typedef Techno
 * @property {number} id
 * @property {string} name
-* @property {string} url
+* @property {string} image
 */
-class Image {
-    static NoImageError = NoImageError;
+class Techno {
+    static NoTechnoError = NoTechnoError;
 
     constructor(obj={}) {
         for(const propName in obj) {
@@ -22,16 +22,16 @@ class Image {
     }
 
     /**
-     * Retrieves all images from database
+     * Retrieves all technos from database
      * @static
      * @async
-     * @returns {Array<Image>} all images in database
+     * @returns {Array<Techno>} all technos in database
      * @throws {Error} There's a problem with the request
      */
     static async findAll() {
         try {
-            const {rows} = await db.query(`SELECT * FROM "image"`);
-            return rows.map(row => new Image(row));
+            const {rows} = await db.query(`SELECT * FROM "techno"`);
+            return rows.map(row => new Techno(row));
         } catch(error) {
             if(error.detail) {
                 throw new Error(error.detail)
@@ -42,21 +42,21 @@ class Image {
     }
 
     /**
-     * Retrieves a image from database
+     * Retrieves a techno from database
      * @static
      * @async
      * @param {number} id 
-     * @returns {Image} the instance identified with its id
+     * @returns {Techno} the instance identified with its id
      * @throws {Error} There's a problem with the request
      * @throws {NoImageError} given id doesn't match with any record in database
      */  
     static async findOne(id) {
         try {
-            const {rows} = await db.query(`SELECT * FROM "image" WHERE id=$1`, [id]);
+            const {rows} = await db.query(`SELECT * FROM "techno" WHERE id=$1`, [id]);
             if(rows[0]) {
-                return new Image(rows[0]);
+                return new Techno(rows[0]);
             }
-            throw new NoImageError(id);
+            throw new NoTechnoError(id);
         } catch(error) {
             if(error.detail) {
                 throw new Error(error.detail)
@@ -67,14 +67,14 @@ class Image {
     }
 
     /**
-     * Adds or updates an instance of Image in database
+     * Adds or updates an instance of Techno in database
      * @async
-     * @returns {Image} the inserted or updated instance
+     * @returns {Techno} the inserted or updated instance
      * @throws {Error} There's a problem with the request
      */
     async save() {
         try {
-            const {rows} = await db.query('SELECT new_image($1) AS id', [this]);
+            const {rows} = await db.query('SELECT new_techno($1) AS id', [this]);
             this.id = rows[0].id;
             return this;
         } catch(error) {
@@ -88,7 +88,7 @@ class Image {
 
     static async delete(id) {
         try {
-            await db.query(`DELETE FROM "image" WHERE id=$1`, [id]);
+            await db.query(`DELETE FROM "techno" WHERE id=$1`, [id]);
         } catch(error) {
             if(error.detail) {
                 throw new Error(error.detail)
@@ -99,4 +99,4 @@ class Image {
     }
 };
 
-module.exports = Image;
+module.exports = Techno;

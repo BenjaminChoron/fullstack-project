@@ -17,4 +17,6 @@ DROP FUNCTION new_avatar(json);
 
 DROP FUNCTION new_image(json);
 
+DROP FUNCTION new_techno(json);
+
 COMMIT;

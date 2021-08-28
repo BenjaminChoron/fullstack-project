@@ -162,3 +162,26 @@ Content-Type: application/json
 
 ### Delete image
 DELETE {{host}}/images/delete/5
+
+
+
+
+
+
+### All technos
+GET {{host}}/technos
+
+### A techno
+GET {{host}}/technos/1
+
+### Add techno
+POST {{host}}/technos/save
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "image": "http://trtsdfgsdgdf.fg/"
+}
+
+### Delete techno
+DELETE {{host}}/technos/delete/5

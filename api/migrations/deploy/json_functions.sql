@@ -105,4 +105,14 @@ CREATE FUNCTION new_image(myRecord json) RETURNS int AS $$
 	) RETURNING id
 $$ LANGUAGE SQL STRICT;
 
+
+
+CREATE FUNCTION new_techno(myRecord json) RETURNS int AS $$
+	INSERT INTO "techno" ("name", "image")
+	VALUES (
+		myRecord->>'name',
+		myRecord->>'image'
+	) RETURNING id
+$$ LANGUAGE SQL STRICT;
+
 COMMIT;

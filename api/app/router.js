@@ -5,6 +5,7 @@ const projectController = require('./controllers/projectController');
 const messageController = require('./controllers/messageController');
 const avatarController = require('./controllers/avatarController');
 const imageController = require('./controllers/imageController');
+const technoController = require('./controllers/technoController');
 
 const router = Router();
 
@@ -72,5 +73,13 @@ router.get('/images', imageController.findAll);
 router.get('/images/:id(\\d+)', imageController.findOne);
 router.post('/images/save', imageController.save);
 router.delete('/images/delete/:id(\\d+)', imageController.delete);
+
+
+
+
+router.get('/technos', technoController.findAll);
+router.get('/technos/:id(\\d+)', technoController.findOne);
+router.post('/technos/save', technoController.save);
+router.delete('/technos/delete/:id(\\d+)', technoController.delete);
 
 module.exports = router;
