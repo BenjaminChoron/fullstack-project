@@ -33,7 +33,7 @@ class Post {
      */
     static async findAll() {
         try {
-            const {rows} = await db.query(`SELECT * FROM "post"`);
+            const {rows} = await db.query(`SELECT title, subtile, content, image.url AS "image" FROM "post" JOIN image ON post.image_id = image.id`);
             return rows.map(row => new Post(row));
         } catch(error) {
             if(error.detail) {
@@ -55,7 +55,7 @@ class Post {
      */  
     static async findOne(id) {
         try {
-            const {rows} = await db.query(`SELECT * FROM "post" WHERE id=$1`, [id]);
+            const {rows} = await db.query(`SELECT title, subtile, content, image.url AS "image" FROM "post" JOIN image ON post.image_id = image.id WHERE id=$1`, [id]);
             if(rows[0]) {
                 return new Post(rows[0]);
             }

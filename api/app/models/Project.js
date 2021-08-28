@@ -34,7 +34,7 @@ class Project {
      */
     static async findAll() {
         try {
-            const {rows} = await db.query(`SELECT * FROM "project"`);
+            const {rows} = await db.query(`SELECT title, content, github_link, web_link, image.url AS "image" FROM "project" JOIN image ON post.image_id = image.id`);
             return rows.map(row => new Project(row));
         } catch(error) {
             if(error.detail) {
@@ -56,7 +56,7 @@ class Project {
      */  
     static async findOne(id) {
         try {
-            const {rows} = await db.query(`SELECT * FROM "project" WHERE id=$1`, [id]);
+            const {rows} = await db.query(`SELECT title, content, github_link, web_link, image.url AS "image" FROM "project" JOIN image ON post.image_id = image.id WHERE id=$1`, [id]);
             if(rows[0]) {
                 return new Project(rows[0]);
             }
