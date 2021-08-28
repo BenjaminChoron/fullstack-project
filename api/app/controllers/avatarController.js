@@ -7,7 +7,7 @@ const avatarController = {
             const avatars = await Avatar.findAll();
             response.json(avatars);
         } catch(error) {
-            response.status(500).send(error.avatar);
+            response.status(500).send(error.message);
         }
     },
 
@@ -19,7 +19,7 @@ const avatarController = {
             if (error instanceof Avatar.NoAvatarError) {
                 response.status(404).send(error.avatar);
             } else {
-                response.status(500).send(error.avatar);
+                response.status(500).send(error.message);
             }
         }
     },

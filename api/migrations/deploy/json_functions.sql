@@ -94,4 +94,15 @@ CREATE FUNCTION new_avatar(myRecord json) RETURNS int AS $$
 	) RETURNING id
 $$ LANGUAGE SQL STRICT;
 
+
+
+
+CREATE FUNCTION new_image(myRecord json) RETURNS int AS $$
+	INSERT INTO "image" ("name", "url")
+	VALUES (
+		myRecord->>'name',
+		myRecord->>'url'
+	) RETURNING id
+$$ LANGUAGE SQL STRICT;
+
 COMMIT;

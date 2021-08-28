@@ -13,4 +13,8 @@ DROP FUNCTION update_project(json);
 
 DROP FUNCTION new_message(json);
 
+DROP FUNCTION new_avatar(json);
+
+DROP FUNCTION new_image(json);
+
 COMMIT;

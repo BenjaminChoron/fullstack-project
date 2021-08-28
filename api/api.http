@@ -140,3 +140,25 @@ Content-Type: application/json
 
 ### Delete avatar
 DELETE {{host}}/avatars/delete/5
+
+
+
+
+
+### All images
+GET {{host}}/images
+
+### A image
+GET {{host}}/images/1
+
+### Add image
+POST {{host}}/images/save
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "url": "http://trtsdfgsdgdf.fg/"
+}
+
+### Delete image
+DELETE {{host}}/images/delete/5

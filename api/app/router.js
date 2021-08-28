@@ -4,6 +4,7 @@ const postController = require('./controllers/postController');
 const projectController = require('./controllers/projectController');
 const messageController = require('./controllers/messageController');
 const avatarController = require('./controllers/avatarController');
+const imageController = require('./controllers/imageController');
 
 const router = Router();
 
@@ -63,5 +64,13 @@ router.get('/avatars', avatarController.findAll);
 router.get('/avatars/:id(\\d+)', avatarController.findOne);
 router.post('/avatars/save', avatarController.save);
 router.delete('/avatars/delete/:id(\\d+)', avatarController.delete);
+
+
+
+
+router.get('/images', imageController.findAll);
+router.get('/images/:id(\\d+)', imageController.findOne);
+router.post('/images/save', imageController.save);
+router.delete('/images/delete/:id(\\d+)', imageController.delete);
 
 module.exports = router;
