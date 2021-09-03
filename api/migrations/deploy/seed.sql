@@ -8,8 +8,8 @@ INSERT INTO "avatar" ("name", "url") VALUES
 ('Leela Turanga','https://static.wikia.nocookie.net/enfuturama/images/9/9e/Cast_futurama_turangaleela.jpg/revision/latest/top-crop/width/360/height/360?cb=20210809013632'),
 ('Lisa Simpson','https://static.wikia.nocookie.net/les-simpson-springfield/images/5/59/Lisa.png/revision/latest?cb=20141223033040&path-prefix=fr');
 
-INSERT INTO "user" ("first_name", "last_name", "email", "password", "avatar_id") VALUES
-('Gilfoyle', 'Bertram', 'gilfoyle@siliconvalley.com', 'qwerty', 2);
+INSERT INTO "user" ("first_name", "last_name", "email", "password", "github", "linkedin", "twitter", "avatar_id") VALUES
+('Gilfoyle', 'Bertram', 'gilfoyle@siliconvalley.com', 'qwerty', 'github', 'linkedin', 'twitter', 2);
 
 INSERT INTO "image" ("name", "url") VALUES
 ('Laptop on desk', 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80'),

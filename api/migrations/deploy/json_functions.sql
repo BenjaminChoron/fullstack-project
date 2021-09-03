@@ -2,13 +2,18 @@
 
 BEGIN;
 
+-- User functions
+
 CREATE FUNCTION new_user(myRecord json) RETURNS int AS $$
-	INSERT INTO "user" ("first_name", "last_name", "email", "password", "avatar_id")
+	INSERT INTO "user" ("first_name", "last_name", "email", "password", "github", "linkedin", "twitter", "avatar_id")
 	VALUES (
 		myRecord->>'first_name',
 		myRecord->>'last_name',
 		myRecord->>'email',
 		myRecord->>'password',
+		myRecord->>'github',
+		myRecord->>'linkedin',
+		myRecord->>'twitter',
 		(myRecord->>'avatar_id')::int
 	) RETURNING id
 $$ LANGUAGE SQL STRICT;
@@ -19,11 +24,15 @@ CREATE FUNCTION update_user(json) RETURNS void AS $$
 		last_name=$1->>'last_name',
 		email=$1->>'email',
 		password=$1->>'password',
+		github=$1->>'github',
+		linkedin=$1->>'linkedin',
+		twitter=$1->>'twitter',
 		avatar_id=($1->>'avatar_id')::int
 	WHERE id=($1->>'id')::int;
 $$ LANGUAGE SQL STRICT;
 
 
+-- Post functions 
 
 CREATE FUNCTION new_post(myRecord json) RETURNS int AS $$
 	INSERT INTO "post" ("title", "subtitle", "content", "user_id", "image_id")
@@ -47,6 +56,7 @@ CREATE FUNCTION update_post(json) RETURNS void AS $$
 $$ LANGUAGE SQL STRICT;
 
 
+-- Project functions
 
 CREATE FUNCTION new_project(myRecord json) RETURNS int AS $$
 	INSERT INTO "project" ("title", "content", "github_link", "web_link", "user_id", "image_id")
@@ -72,7 +82,7 @@ CREATE FUNCTION update_project(json) RETURNS void AS $$
 $$ LANGUAGE SQL STRICT;
 
 
-
+-- Message function
 
 CREATE FUNCTION new_message(myRecord json) RETURNS int AS $$
 	INSERT INTO "message" ("from", "email", "content")
@@ -84,7 +94,7 @@ CREATE FUNCTION new_message(myRecord json) RETURNS int AS $$
 $$ LANGUAGE SQL STRICT;
 
 
-
+-- Avatar function
 
 CREATE FUNCTION new_avatar(myRecord json) RETURNS int AS $$
 	INSERT INTO "avatar" ("name", "url")
@@ -95,7 +105,7 @@ CREATE FUNCTION new_avatar(myRecord json) RETURNS int AS $$
 $$ LANGUAGE SQL STRICT;
 
 
-
+-- Image function
 
 CREATE FUNCTION new_image(myRecord json) RETURNS int AS $$
 	INSERT INTO "image" ("name", "url")
@@ -106,6 +116,7 @@ CREATE FUNCTION new_image(myRecord json) RETURNS int AS $$
 $$ LANGUAGE SQL STRICT;
 
 
+-- Techno function 
 
 CREATE FUNCTION new_techno(myRecord json) RETURNS int AS $$
 	INSERT INTO "techno" ("name", "image")

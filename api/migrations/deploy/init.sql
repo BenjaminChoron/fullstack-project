@@ -14,6 +14,9 @@ CREATE TABLE "user" (
     "last_name" TEXT NOT NULL,
     "email" TEXT NOT NULL UNIQUE,
     "password" TEXT NOT NULL,
+    "github" TEXT,
+    "linkedin" TEXT,
+    "twitter" TEXT,
     "avatar_id" INTEGER NOT NULL REFERENCES "avatar"("id")
 );
 
