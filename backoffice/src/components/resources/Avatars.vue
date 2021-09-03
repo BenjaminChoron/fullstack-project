@@ -76,7 +76,13 @@ export default {
             if (confirm('Êtes-vous sûr de vouloir supprimer cet avatar ? Cette action est irréversible...')) {
                 axios
                 .delete(`http://localhost:5000/avatars/delete/${id}`)
-                window.location.reload();
+                .then(() => {
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert("Vous ne pouvez pas supprimer un avatar lié à un utilisateur");
+                })
             }
         }
     }
