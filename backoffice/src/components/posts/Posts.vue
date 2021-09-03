@@ -5,13 +5,13 @@
         <router-link class="btn" to="/posts/new">+ Nouvel article</router-link>
 
         <div class="posts-box">
-            <div class="post" v-bind:key="index" v-for="(post, index) in posts">
+            <router-link class="post" :to="`/posts/update/${post.id}`" v-bind:key="index" v-for="(post, index) in posts">
                 <img :src="post.image">
                 <div class="post-infos">
                     <h4>{{post.title}}</h4>
                     <p>{{post.subtitle}}</p>
                 </div>
-            </div>
+            </router-link>
         </div>
     </main>
 </template>

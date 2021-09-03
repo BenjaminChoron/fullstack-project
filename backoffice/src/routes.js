@@ -5,6 +5,7 @@ import Technos from './components/resources/Technos'
 import UserProfile from './components/user/UserProfile'
 import Posts from './components/posts/Posts'
 import NewPost from './components/posts/NewPost'
+import UpdatePost from './components/posts/UpdatePost'
 
 export default [
     {
@@ -34,5 +35,9 @@ export default [
     {
         path: '/posts/new', 
         component: NewPost
+    },
+    {
+        path: '/posts/update/:id', 
+        component: UpdatePost
     }
 ]
