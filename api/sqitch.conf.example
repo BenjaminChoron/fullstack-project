@@ -6,3 +6,5 @@
 	target = db:pg:my_database
 	# registry = sqitch
 	# client = psql
+[target "heroku"]
+	uri = heroku_database

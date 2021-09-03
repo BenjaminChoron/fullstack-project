@@ -1,4 +1,4 @@
-@host=https://benjamin-personal-db.herokuapp.com/v1/
+@host=http://localhost:5000/v1/
 
 ### Test
 GET {{host}}/hello
