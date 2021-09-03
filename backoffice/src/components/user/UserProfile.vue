@@ -48,7 +48,7 @@
                 <div class="avatars">
                     <div v-bind:key="index" v-for="(avatar, index) in avatars" class="avatar-choice">
                         <input type="radio" name="avatar-choice" :value="avatar.id" v-model="form.avatar_id">
-                        <img :src="avatar.url" width="100px">
+                        <img :src="avatar.url">
                     </div>
                 </div>
             </div>

@@ -118,6 +118,16 @@ main {
 
 
 // ------------------------------
+// ------------- HOME -----------
+// ------------------------------
+
+.resource-btn {
+    @include global-btn();
+}
+
+
+
+// ------------------------------
 // ---------- PROFILE -----------
 // ------------------------------
 
@@ -139,6 +149,7 @@ main {
 
         & img {
             border-radius: .4rem;
+            width: 100px;
         }
     }
 }
@@ -148,16 +159,16 @@ main {
 // ---------- AVATARS -----------
 // ------------------------------
 
-main.avatars {
+main.avatars, main.images {
     display: flex;
     flex-direction: column;
 }
 
-.all-avatars {
+.all-avatars, .all-images {
     display: flex;
     flex-wrap: wrap;
 
-    & .avatar-box {
+    & .avatar-box, & .image-box {
         position: relative;
         margin: 1rem;
 
@@ -169,10 +180,18 @@ main.avatars {
             @include global-btn();
             margin: 0;
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 0;
+            left: 0;
         }
     }
+}
+
+.avatar-box img {
+    width: 100px;
+}
+
+.image-box img {
+    width: 200px;
 }
 
 

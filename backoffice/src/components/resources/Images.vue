@@ -1,6 +1,6 @@
 <template>
-    <main class="avatars">
-        <h2>Avatars</h2>
+    <main class="images">
+        <h2>Images</h2>
 
         <form @submit.prevent="submitForm" class="global-form"> 
             <div class="input-group">
@@ -18,12 +18,12 @@
             </div>
         </form>
 
-        <h3>Tous les avatars</h3>
+        <h3>Toutes les images</h3>
 
-        <div class="all-avatars">
-            <div class="avatar-box" v-bind:key="index" v-for="(avatar, index) in avatars">
-                <img :src="avatar.url">
-                <button class="btn danger" @click="deleteAvatar(avatar.id)">
+        <div class="all-images">
+            <div class="image-box" v-bind:key="index" v-for="(image, index) in images">
+                <img :src="image.url">
+                <button class="btn danger" @click="deleteImage(image.id)">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
@@ -35,10 +35,10 @@
 import axios from 'axios'
 
 export default {
-    name: 'Avatars',
+    name: 'Images',
     data() {
         return {
-            avatars: null,
+            images: null,
             form: {
                 name: '',
                 url: ''
@@ -47,14 +47,14 @@ export default {
     },
     mounted(){
         axios
-        .get(`http://localhost:5000/avatars`)
+        .get(`http://localhost:5000/images`)
         .then(response => {
-            this.avatars = response.data
+            this.images = response.data
         })
     },
     methods: {
         submitForm: function() {
-            let newAvatarForm = {
+            let newImageForm = {
                 name: this.form.name,
                 url: this.form.url
             };
@@ -63,7 +63,7 @@ export default {
                 'Content-Type': 'application/json'
             }
 
-            axios.post('http://localhost:5000/avatars/save', newAvatarForm, { headers: headers })
+            axios.post('http://localhost:5000/images/save', newImageForm, { headers: headers })
             .then(() => {
                     window.location.reload();
             })
@@ -72,16 +72,16 @@ export default {
             })
         },
 
-        deleteAvatar: (id) => {
-            if (confirm('Êtes-vous sûr de vouloir supprimer cet avatar ? Cette action est irréversible...')) {
+        deleteImage: (id) => {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette image ? Cette action est irréversible...')) {
                 axios
-                .delete(`http://localhost:5000/avatars/delete/${id}`)
+                .delete(`http://localhost:5000/images/delete/${id}`)
                 .then(() => {
                     window.location.reload();
                 })
                 .catch((error) => {
                     console.log(error);
-                    alert("Vous ne pouvez pas supprimer un avatar lié à un utilisateur");
+                    alert("Vous ne pouvez pas supprimer une image lié à un article ou un projet");
                 })
             }
         }
