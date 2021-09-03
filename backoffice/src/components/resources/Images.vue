@@ -23,6 +23,7 @@
         <div class="all-images">
             <div class="image-box" v-bind:key="index" v-for="(image, index) in images">
                 <img :src="image.url">
+                <p>{{image.name}}</p>
                 <button class="btn danger" @click="deleteImage(image.id)">
                     <i class="fas fa-trash"></i>
                 </button>

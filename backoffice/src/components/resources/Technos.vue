@@ -23,6 +23,7 @@
         <div class="all-technos">
             <div class="techno-box" v-bind:key="index" v-for="(techno, index) in technos">
                 <img :src="techno.image">
+                <p>{{techno.name}}</p>
                 <button class="btn techno danger" @click="deleteTechno(techno.id)">
                     <i class="fas fa-trash"></i>
                 </button>
