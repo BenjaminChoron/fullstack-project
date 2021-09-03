@@ -60,7 +60,8 @@ CREATE TABLE "message" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "from" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "content" TEXT NOT NULL
+    "content" TEXT NOT NULL,
+    "createdAt" TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 COMMIT;
