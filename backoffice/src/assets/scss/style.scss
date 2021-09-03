@@ -5,6 +5,31 @@ $green: #00A19D;
 $background: #e6e5e5;
 $light-text: #f5f5f5;
 
+@mixin global-btn {
+    margin: 1rem;
+    padding: .4rem;
+    border: none;
+    border-radius: .4rem;
+    background-color: $green;
+    color: $light-text;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+
+    &.success {
+        background-color: mediumseagreen;
+    }
+
+    &.danger {
+        background-color: crimson;
+    }
+
+    &:hover {
+        background-color: $dark-blue;
+    }
+}
+
 
 // ---------------------------
 // ---------- GLOBAL ---------
@@ -47,28 +72,7 @@ main {
         justify-content: center;
 
         & .form-btn {
-            margin: 1rem;
-            padding: .4rem;
-            border: none;
-            border-radius: .4rem;
-            background-color: $green;
-            color: $light-text;
-            text-decoration: none;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: .3s;
-    
-            &.success {
-                background-color: mediumseagreen;
-            }
-
-            &.danger {
-                background-color: crimson;
-            }
-    
-            &:hover {
-                background-color: $dark-blue;
-            }
+            @include global-btn();
         }
     }
 }
@@ -161,21 +165,12 @@ main.avatars {
             border-radius: .4rem;
         }
 
-        & button {
+        & .btn {
+            @include global-btn();
+            margin: 0;
             position: absolute;
             top: 5px;
             left: 5px;
-            border: none;
-            border-radius: .4rem;
-            background-color: crimson;
-            padding: .2rem;
-            color: $light-text;
-            cursor: pointer;
-            transition: .3s;
-
-            &:hover {
-                background-color: $dark-blue;
-            }
         }
     }
 }

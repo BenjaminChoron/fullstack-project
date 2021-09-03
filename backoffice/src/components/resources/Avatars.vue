@@ -23,7 +23,7 @@
         <div class="all-avatars">
             <div class="avatar-box" v-bind:key="index" v-for="(avatar, index) in avatars">
                 <img :src="avatar.url" width="100px">
-                <button class="link warning" @click="deleteAvatar(avatar.id)">
+                <button class="btn danger" @click="deleteAvatar(avatar.id)">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
