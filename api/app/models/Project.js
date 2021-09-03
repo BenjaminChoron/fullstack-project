@@ -34,7 +34,14 @@ class Project {
      */
     static async findAll() {
         try {
-            const {rows} = await db.query(`SELECT title, content, github_link, web_link, image.url AS "image" FROM "project" JOIN image ON post.image_id = image.id`);
+            const {rows} = await db.query(`
+                SELECT project.id, title, content, github_link, web_link, image.url AS "image", ARRAY_AGG (techno.image) "techno"
+                FROM project
+                JOIN image ON project.image_id = image.id 
+                JOIN project_techno ON project.id = project_techno.project_id
+                JOIN techno ON project_techno.techno_id = techno.id
+                GROUP BY project.id, title, content, github_link, web_link, image.url
+            `);
             return rows.map(row => new Project(row));
         } catch(error) {
             if(error.detail) {
@@ -56,7 +63,15 @@ class Project {
      */  
     static async findOne(id) {
         try {
-            const {rows} = await db.query(`SELECT title, content, github_link, web_link, image.url AS "image" FROM "project" JOIN image ON post.image_id = image.id WHERE id=$1`, [id]);
+            const {rows} = await db.query(`
+                SELECT project.id, title, content, github_link, web_link, image.url AS "image", ARRAY_AGG (techno.image) "techno"
+                FROM project
+                JOIN image ON project.image_id = image.id 
+                JOIN project_techno ON project.id = project_techno.project_id
+                JOIN techno ON project_techno.techno_id = techno.id
+                WHERE project.id=$1
+                GROUP BY project.id, title, content, github_link, web_link, image.url 
+            `, [id]);
             if(rows[0]) {
                 return new Project(rows[0]);
             }

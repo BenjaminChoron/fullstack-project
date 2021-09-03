@@ -1,4 +1,4 @@
-@host=http://localhost:5000/v1
+@host=https://benjamin-personal-db.herokuapp.com/v1/
 
 ### Test
 GET {{host}}/hello
@@ -41,6 +41,29 @@ DELETE {{host}}/users/delete/15
 
 
 
+### All messages
+GET {{host}}/messages
+
+### A message
+GET {{host}}/messages/1
+
+### Add message
+POST {{host}}/messages/save
+Content-Type: application/json
+
+{
+    "from": "Tim Cook",
+    "email": "tim@apple.com",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh."
+}
+
+### Delete message
+DELETE {{host}}/messages/delete/4
+
+
+
+
+
 
 ### All posts
 GET {{host}}/posts
@@ -74,9 +97,7 @@ Content-Type: application/json
 }
 
 ### Delete post
-DELETE {{host}}/posts/delete/5
-
-
+DELETE {{host}}/posts/delete/3
 
 
 
