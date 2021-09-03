@@ -171,11 +171,11 @@ main {
 }
 
 
-// ------------------------------
-// ---------- AVATARS -----------
-// ------------------------------
+// --------------------------------
+// ---------- RESOURCES -----------
+// --------------------------------
 
-main.avatars, main.images {
+main.avatars, main.images, main.technos {
     display: flex;
     flex-direction: column;
 }
@@ -214,6 +214,67 @@ main.avatars, main.images {
 }
 .techno-box img {
     height: 50px;
+}
+
+
+// ------------------------------
+// ---------- POSTS -------------
+// ------------------------------
+
+main.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    @include global-btn();
+}
+
+.posts-box {
+    min-width: 300px;
+    padding: 0 1rem;
+    border-radius: .4rem;
+    box-shadow: 0 0 10px #999;
+
+    & .post {
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: 1px solid #999;
+
+        &:last-child {
+            border: none;
+        }
+
+        & img {
+            height: 40px;
+            margin-right: .4rem;
+            border-radius: .2rem;
+        }
+    }
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & .image-choice {
+        display: flex;
+        align-items: flex-start;
+        margin: .6rem;
+
+        & input {
+            position: relative;
+            left: 20px;
+            top: 10px;
+        }
+
+        & img {
+            border-radius: .4rem;
+            width: 100px;
+        }
+    }
 }
 
 

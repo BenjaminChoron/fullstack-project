@@ -3,6 +3,8 @@ import Avatars from './components/resources/Avatars'
 import Images from './components/resources/Images'
 import Technos from './components/resources/Technos'
 import UserProfile from './components/user/UserProfile'
+import Posts from './components/posts/Posts'
+import NewPost from './components/posts/NewPost'
 
 export default [
     {
@@ -24,5 +26,13 @@ export default [
     {
         path: '/profile', 
         component: UserProfile
+    },
+    {
+        path: '/posts', 
+        component: Posts
+    },
+    {
+        path: '/posts/new', 
+        component: NewPost
     }
 ]
