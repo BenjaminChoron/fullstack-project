@@ -27,6 +27,52 @@ main {
     padding: 2rem;
 }
 
+.global-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    & .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        & input {
+            padding: .4rem;
+        }
+    }
+
+    & .btn-box {
+        display: flex;
+        justify-content: center;
+
+        & .form-btn {
+            margin: 1rem;
+            padding: .4rem;
+            border: none;
+            border-radius: .4rem;
+            background-color: $green;
+            color: $light-text;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .3s;
+    
+            &.success {
+                background-color: mediumseagreen;
+            }
+
+            &.danger {
+                background-color: crimson;
+            }
+    
+            &:hover {
+                background-color: $dark-blue;
+            }
+        }
+    }
+}
+
 
 // ---------------------------
 // ---------- MENU -----------
@@ -71,70 +117,24 @@ main {
 // ---------- PROFILE -----------
 // ------------------------------
 
-.profile-form {
-    margin-top: 2rem;
+.avatars {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 
-    & .input-group {
+    & .avatar-choice {
         display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
+        align-items: flex-start;
+        margin: .6rem;
 
         & input {
-            padding: .4rem;
+            position: relative;
+            left: 20px;
+            top: 10px;
         }
 
-        & .avatars {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-
-            & .avatar-choice {
-                display: flex;
-                align-items: flex-start;
-                margin: .6rem;
-        
-                & input {
-                    position: relative;
-                    left: 20px;
-                    top: 10px;
-                }
-
-                & img {
-                    border-radius: .4rem;
-                }
-            }
-        }
-    }
-
-    & .btn-box {
-        display: flex;
-        justify-content: center;
-
-        & .form-btn {
-            margin: 1rem;
-            padding: .4rem;
-            border: none;
+        & img {
             border-radius: .4rem;
-            background-color: $green;
-            color: $light-text;
-            text-decoration: none;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: .3s;
-    
-            &.success {
-                background-color: mediumseagreen;
-            }
-
-            &.danger {
-                background-color: crimson;
-            }
-    
-            &:hover {
-                background-color: $dark-blue;
-            }
         }
     }
 }
@@ -144,6 +144,11 @@ main {
 // ---------- AVATARS -----------
 // ------------------------------
 
+main.avatars {
+    display: flex;
+    flex-direction: column;
+}
+
 .all-avatars {
     display: flex;
     flex-wrap: wrap;
@@ -152,10 +157,25 @@ main {
         position: relative;
         margin: 1rem;
 
+        & img {
+            border-radius: .4rem;
+        }
+
         & button {
             position: absolute;
             top: 5px;
             left: 5px;
+            border: none;
+            border-radius: .4rem;
+            background-color: crimson;
+            padding: .2rem;
+            color: $light-text;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                background-color: $dark-blue;
+            }
         }
     }
 }

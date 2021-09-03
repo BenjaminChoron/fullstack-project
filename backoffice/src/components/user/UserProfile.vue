@@ -2,7 +2,7 @@
     <main class="profile">
         <h2>Mon profil</h2>
 
-        <form @submit.prevent="submitForm" class="profile-form"> 
+        <form @submit.prevent="submitForm" class="global-form"> 
             <div class="input-group">
                 <label for="first_name" class="form-label">Nom</label>
                 <input type="text" class="form-control" name="first_name" v-model="form.first_name">

@@ -2,7 +2,7 @@
     <main class="avatars">
         <h2>Avatars</h2>
 
-        <form @submit.prevent="submitForm" class="profile-form"> 
+        <form @submit.prevent="submitForm" class="global-form"> 
             <div class="input-group">
                 <label for="name" class="form-label">Nom</label>
                 <input type="text" class="form-control" name="name" v-model="form.name">
