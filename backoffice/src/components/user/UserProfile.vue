@@ -54,7 +54,7 @@
             </div>
 
             <div class="btn-box">
-                <button class="form-btn send" type="submit">Modifier</button>
+                <button class="form-btn success" type="submit">Modifier</button>
             </div>
         </form>
     </main>
@@ -68,6 +68,7 @@ export default {
     name: 'UserProfile',
     data() {
         return {
+            avatars: null,
             form: {
                 first_name: '',
                 last_name: '',
@@ -83,7 +84,13 @@ export default {
     },
     mounted(){
         axios
-        .get(`https:/localhost:5000/users/1`)
+        .get(`http://localhost:5000/avatars`)
+        .then(response => {
+            this.avatars = response.data
+        })
+
+        axios
+        .get(`http://localhost:5000/users/1`)
         .then(response => {
             this.form.first_name = response.data.first_name;
             this.form.last_name = response.data.last_name;
@@ -99,7 +106,7 @@ export default {
             if(this.form.password === this.form.confirmPassword) {
                 if (confirm('Êtes-vous sûr de vouloir modifier vos informations ?')) {
                     let updateUserForm = {
-                        id: 2,
+                        id: 1,
                         first_name: this.form.first_name,
                         last_name: this.form.last_name,
                         email: this.form.email,
@@ -114,15 +121,15 @@ export default {
                     'Content-Type': 'application/json'
                     }
 
-                    axios.post('https://localhost:5000/users/save', updateUserForm, { headers: headers })
+                    axios.post('http://localhost:5000/users/save', updateUserForm, { headers: headers })
                     .then(() => {
-                        this.$router.push({path: '/profile'});
+                        window.location.reload();
                     })
                     .catch((error) => {
                         console.log(error);
                     })
                 } else {
-                    this.$router.push({path: '/profile'});
+                    window.location.reload();
                 }
                 
             } else {

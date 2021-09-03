@@ -3,10 +3,10 @@
 BEGIN;
 
 INSERT INTO "avatar" ("name", "url") VALUES
-('Eric Cartman','https://static.wikia.nocookie.net/southpark-fr/images/9/9e/Eric_cartman.png/revision/latest?cb=20151010161607&path-prefix=fr'),
-('Rick Sanchez','https://static.wikia.nocookie.net/rick-et-morty/images/a/a6/Rick_Sanchez.png/revision/latest/top-crop/width/360/height/450?cb=20170726160155&path-prefix=fr'),
-('Leela Turanga','https://static.wikia.nocookie.net/enfuturama/images/9/9e/Cast_futurama_turangaleela.jpg/revision/latest/top-crop/width/360/height/360?cb=20210809013632'),
-('Lisa Simpson','https://static.wikia.nocookie.net/les-simpson-springfield/images/5/59/Lisa.png/revision/latest?cb=20141223033040&path-prefix=fr');
+('Eric Cartman','https://i.imgur.com/UKkNPHu.png'),
+('Rick Sanchez','https://i.imgur.com/uFu3Ffa.png'),
+('Leela Turanga','https://i.imgur.com/im3uJSF.jpg'),
+('Lisa Simpson','https://i.imgur.com/F1wvb5L.png');
 
 INSERT INTO "user" ("first_name", "last_name", "email", "password", "github", "linkedin", "twitter", "avatar_id") VALUES
 ('Gilfoyle', 'Bertram', 'gilfoyle@siliconvalley.com', 'qwerty', 'github', 'linkedin', 'twitter', 2);

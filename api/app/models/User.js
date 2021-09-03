@@ -33,7 +33,7 @@ class User {
      */
     static async findAll() {
         try {
-            const {rows} = await db.query(`SELECT "user".id, first_name, last_name, email, password, github, linkedin, twitter, avatar.url AS "avatar" FROM "user" JOIN avatar ON "user".avatar_id = avatar.id`);
+            const {rows} = await db.query(`SELECT "user".id, first_name, last_name, email, password, github, linkedin, twitter, avatar_id, avatar.url AS "avatar" FROM "user" JOIN avatar ON "user".avatar_id = avatar.id`);
             return rows.map(row => new User(row));
         } catch(error) {
             if(error.detail) {
@@ -55,7 +55,7 @@ class User {
      */  
     static async findOne(id) {
         try {
-            const {rows} = await db.query(`SELECT "user".id, first_name, last_name, email, password, github, linkedin, twitter, avatar.url AS "avatar" FROM "user" JOIN avatar ON "user".avatar_id = avatar.id WHERE "user".id=$1`, [id]);
+            const {rows} = await db.query(`SELECT "user".id, first_name, last_name, email, password, github, linkedin, twitter, avatar_id, avatar.url AS "avatar" FROM "user" JOIN avatar ON "user".avatar_id = avatar.id WHERE "user".id=$1`, [id]);
             if(rows[0]) {
                 return new User(rows[0]);
             }
