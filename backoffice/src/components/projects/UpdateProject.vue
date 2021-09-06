@@ -60,7 +60,7 @@
             <div class="btn-box">
                 <router-link class="form-btn" to="/projects">Retour</router-link>
                 <button class="form-btn success" type="submit">Modifier</button>
-                <button class="form-btn danger" @click="deleteProject(form.id)">
+                <button class="form-btn danger" @click="deleteProject(form.id, ass_technos)">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
@@ -167,8 +167,14 @@ export default {
             }
         },
 
-        deletePost: (id) => {
+        deleteProject: (id, ass_technos) => {
             if (confirm('Êtes-vous sûr de vouloir supprimer ce projet ? Cette action est irréversible...')) {
+                console.log(ass_technos);
+                for(let techno of ass_technos) {
+                    console.log(techno);
+                    axios
+                    .delete(`http://localhost:5000/projects/${id}/technos/${techno.techno_id}/delete`)
+                }
                 axios
                 .delete(`http://localhost:5000/projects/delete/${id}`)
                 this.$router.push({path: '/projects'});
