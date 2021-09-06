@@ -33,14 +33,14 @@
                 <div class="technos">
                     <div v-bind:key="index" v-for="(techno, index) in ass_technos" class="techno-choice">
                         <img :src="techno.techno_image">
-                        <button class="form-btn danger" @click="deleteAssociation(techno.project_id, techno.techno_id)">
+                        <button @click="deleteAssociation(techno.project_id, techno.techno_id)">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <form @submit.prevent="addTechnoForm" class="global-form">
+            <form @submit.prevent="addTechnoForm" class="global-form add-tech">
                 <div class="input-group">
                     <label for="techno" class="form-label">Ajouter techno(s)</label>
                     <div class="technos">
@@ -49,7 +49,9 @@
                             <img :src="techno.image">
                         </div>
                     </div>
-                    <button class="form-btn success" type="submit">Ajouter</button>
+                    <div class="btn-box">
+                        <button class="form-btn success" type="submit">Ajouter</button>
+                    </div>
                 </div>
             </form>
 

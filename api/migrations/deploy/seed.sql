@@ -18,10 +18,13 @@ INSERT INTO "image" ("name", "url") VALUES
 ('Basketball hoop', 'https://images.unsplash.com/photo-1493078640264-28e9ec0ae9ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
 
 INSERT INTO "techno" ("name", "image") VALUES 
-('Javascript','https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png'),
-('Node.js','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png'),
-('PostgreSQL','https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png'),
-('Vue.js','https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/555px-Vue.js_Logo_2.svg.png');
+('HTML5', 'https://img.icons8.com/color/96/000000/html-5--v1.png'),
+('CSS3', 'https://img.icons8.com/color/96/000000/css3.png'),
+('Sass', 'https://img.icons8.com/color/96/000000/sass.png'),
+('Javascript','https://img.icons8.com/color/96/000000/javascript--v1.png'),
+('Vue.js','https://img.icons8.com/color/96/000000/vue-js.png'),
+('Node.js','https://img.icons8.com/color/96/000000/nodejs.png'),
+('PostgreSQL','https://img.icons8.com/color/96/000000/postgreesql.png');
 
 INSERT INTO "post" ("title", "subtitle", "content", "user_id", "image_id") VALUES
 ('Come to Toronto', 'Where the dreams begin...', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh. Mauris magna metus, ultricies quis nisi sed, pellentesque mollis ipsum. Vestibulum ornare faucibus lorem vel laoreet. Curabitur ultrices blandit pretium.', 1, 2),
