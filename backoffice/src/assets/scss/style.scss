@@ -138,6 +138,11 @@ main.home {
     flex-direction: column;
     align-items: center;
 
+    & .user-avatar {
+        width: 100px;
+        margin: 2rem;
+    }
+
     & p {
         margin: 1rem 0;
     }

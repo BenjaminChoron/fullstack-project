@@ -2,6 +2,8 @@
     <main class="home">
         <h2>Bonjour {{user.first_name}} et bienvenue dans votre espace de gestion.</h2>
 
+        <img class="user-avatar" :src="user.avatar">
+
         <p>Nous sommes le {{ $date(Date()).locale('fr').format('dddd D MMMM YYYY') }}</p>
 
         <div class="resources-box">
@@ -14,11 +16,11 @@
         </div>
 
         <div class="posts-resume">
-            <p>Vous avez {{posts.length}} articles publiés</p>
+            <p>Vous avez {{posts.length}} article(s) publié(s)</p>
         </div>
 
         <div class="projects-resume">
-            <p>Vous avez {{projects.length}} projets publiés</p>
+            <p>Vous avez {{projects.length}} projet(s) publié(s)</p>
         </div>
 
     </main>
