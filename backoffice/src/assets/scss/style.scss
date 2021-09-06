@@ -133,18 +133,30 @@ main {
 // ------------- HOME -----------
 // ------------------------------
 
-.resources-box {
-    width: 150px;
+main.home {
     display: flex;
     flex-direction: column;
-    padding: .4rem;
+    align-items: center;
+
+    & p {
+        margin: 1rem 0;
+    }
+}
+
+.resources-box {
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    padding: 1rem;
     border-radius: .4rem;
     box-shadow: 2px 2px 10px #999;
 
-    & .resource-btn {
-        @include global-btn();
-        margin: .4rem;
-        text-align: center;
+    &__buttons {
+        & .resource-btn {
+            @include global-btn();
+            margin: .4rem;
+            text-align: center;
+        }
     }
 }
 
