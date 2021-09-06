@@ -2,6 +2,7 @@ const {Router} = require('express');
 const userController = require('./controllers/userController');
 const postController = require('./controllers/postController');
 const projectController = require('./controllers/projectController');
+const project_technoController = require('./controllers/project_technoController');
 const messageController = require('./controllers/messageController');
 const avatarController = require('./controllers/avatarController');
 const imageController = require('./controllers/imageController');
@@ -47,8 +48,17 @@ router.delete('/posts/delete/:id(\\d+)', postController.delete);
 
 router.get('/projects', projectController.findAll);
 router.get('/projects/:id(\\d+)', projectController.findOne);
+router.get('/projects/bytitle/:title', projectController.findByTitle);
 router.post('/projects/save', projectController.save);
 router.delete('/projects/delete/:id(\\d+)', projectController.delete);
+
+
+
+
+router.get('/projects/:id/technos', project_technoController.findByProject);
+router.get('/technos/:id/projects', project_technoController.findByTechno);
+router.post('/projects/technos/save', project_technoController.save);
+router.delete('/projects/:project_id/technos/:techno_id/delete', project_technoController.delete);
 
 
 

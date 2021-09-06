@@ -221,7 +221,7 @@ main.avatars, main.images, main.technos {
 // ---------- POSTS -------------
 // ------------------------------
 
-main.posts, main.messages {
+main.posts, main.messages, main.projects {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,14 +231,15 @@ main.posts, main.messages {
     @include global-btn();
 }
 
-.posts-box, .messages-box {
+.posts-box, .messages-box, .projects-box {
     min-width: 300px;
     margin-top: 2rem;
     border-radius: .4rem;
     box-shadow: 0 0 10px #999;
 
-    & .post, & .message {
+    & .post, & .message, & .project {
         display: flex;
+        align-items: center;
         padding: 1rem;
         border-bottom: 1px solid #999;
         color: #000;
@@ -287,6 +288,29 @@ main.posts, main.messages {
         & img {
             border-radius: .4rem;
             width: 100px;
+        }
+    }
+}
+
+.technos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & .techno-choice {
+        display: flex;
+        align-items: flex-start;
+        margin: .6rem;
+
+        & input {
+            position: relative;
+            left: 14px;
+            top: 2px;
+        }
+
+        & img {
+            border-radius: .4rem;
+            height: 50px;
         }
     }
 }

@@ -35,12 +35,12 @@ class Project {
     static async findAll() {
         try {
             const {rows} = await db.query(`
-                SELECT project.id, title, content, github_link, web_link, image.url AS "image", ARRAY_AGG (techno.image) "techno"
+                SELECT project.id, title, content, github_link, web_link, image.id AS "id_image", image.url AS "image", ARRAY_AGG (techno.image) "techno"
                 FROM project
                 JOIN image ON project.image_id = image.id 
                 JOIN project_techno ON project.id = project_techno.project_id
                 JOIN techno ON project_techno.techno_id = techno.id
-                GROUP BY project.id, title, content, github_link, web_link, image.url
+                GROUP BY project.id, title, content, github_link, web_link, image.url, image.id
             `);
             return rows.map(row => new Project(row));
         } catch(error) {
@@ -64,18 +64,37 @@ class Project {
     static async findOne(id) {
         try {
             const {rows} = await db.query(`
-                SELECT project.id, title, content, github_link, web_link, image.url AS "image", ARRAY_AGG (techno.image) "techno"
+                SELECT project.id, title, content, github_link, web_link, image.id AS "id_image", image.url AS "image", ARRAY_AGG (techno.image) "techno"
                 FROM project
                 JOIN image ON project.image_id = image.id 
                 JOIN project_techno ON project.id = project_techno.project_id
                 JOIN techno ON project_techno.techno_id = techno.id
                 WHERE project.id=$1
-                GROUP BY project.id, title, content, github_link, web_link, image.url 
+                GROUP BY project.id, title, content, github_link, web_link, image.url, image.id
             `, [id]);
             if(rows[0]) {
                 return new Project(rows[0]);
             }
             throw new NoProjectError(id);
+        } catch(error) {
+            if(error.detail) {
+                throw new Error(error.detail)
+            } else {
+                throw error;
+            }
+        }
+    }
+
+    static async findByTitle(title) {
+        try {
+            const {rows} = await db.query(`
+                SELECT project.id, title, content, github_link, web_link, image.id AS "id_image", image.url AS "image"
+                FROM project
+                JOIN image ON project.image_id = image.id 
+                WHERE title=$1
+                GROUP BY project.id, title, content, github_link, web_link, image.url, image.id
+            `, [title]);
+            return new Project(rows[0]);
         } catch(error) {
             if(error.detail) {
                 throw new Error(error.detail)

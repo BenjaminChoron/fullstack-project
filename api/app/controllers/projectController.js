@@ -24,6 +24,15 @@ const projectController = {
         }
     },
 
+    findByTitle: async (request, response) => {
+        try {
+            const project = await Project.findByTitle(request.params.title);
+            response.json(project);
+        } catch(error) {
+            response.status(500).send(error.message);
+        }
+    },
+
     save: async (request, response) => {
         try {
             const project = new Project(request.body);

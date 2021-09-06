@@ -8,6 +8,9 @@ import NewPost from './components/posts/NewPost'
 import UpdatePost from './components/posts/UpdatePost'
 import Messages from './components/messages/Messages'
 import MessageDetail from './components/messages/MessageDetail'
+import Projects from './components/projects/Projects'
+import NewProject from './components/projects/NewProject'
+import UpdateProject from './components/projects/UpdateProject'
 
 export default [
     {
@@ -31,6 +34,14 @@ export default [
         component: UserProfile
     },
     {
+        path: '/messages', 
+        component: Messages
+    },
+    {
+        path: '/messages/:id', 
+        component: MessageDetail
+    },
+    {
         path: '/posts', 
         component: Posts
     },
@@ -43,11 +54,15 @@ export default [
         component: UpdatePost
     },
     {
-        path: '/messages', 
-        component: Messages
+        path: '/projects', 
+        component: Projects
     },
     {
-        path: '/messages/:id', 
-        component: MessageDetail
+        path: '/projects/new', 
+        component: NewProject
+    },
+    {
+        path: '/projects/update/:id', 
+        component: UpdateProject
     }
 ]

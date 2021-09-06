@@ -126,4 +126,15 @@ CREATE FUNCTION new_techno(myRecord json) RETURNS int AS $$
 	) RETURNING id
 $$ LANGUAGE SQL STRICT;
 
+
+-- Project_techno functions
+
+CREATE FUNCTION new_project_techno(myRecord json) RETURNS void AS $$
+	INSERT INTO "project_techno" ("project_id", "techno_id")
+	VALUES (
+		(myRecord->>'project_id')::int,
+		(myRecord->>'techno_id')::int
+	)
+$$ LANGUAGE SQL STRICT;
+
 COMMIT;

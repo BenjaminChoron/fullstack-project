@@ -19,4 +19,6 @@ DROP FUNCTION new_image(json);
 
 DROP FUNCTION new_techno(json);
 
+DROP FUNCTION new_project_techno(json);
+
 COMMIT;

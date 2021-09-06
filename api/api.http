@@ -206,3 +206,28 @@ Content-Type: application/json
 
 ### Delete techno
 DELETE {{host}}/technos/delete/5
+
+
+
+
+
+
+
+### By project
+GET {{host}}/projects/1/technos
+
+### By techno
+GET {{host}}/technos/1/projects
+
+### New association
+POST {{host}}/projects/technos/save
+Content-Type: application/json
+
+{
+    "project_id": 1,
+    "techno_id": 3
+}
+
+### Delete association
+DELETE {{host}}/projects/1/technos/2/delete
+
