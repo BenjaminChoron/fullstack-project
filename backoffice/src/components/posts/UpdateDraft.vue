@@ -1,6 +1,6 @@
 <template>
     <main class="new-post">
-        <h2>Nouvel article</h2>
+        <h2>Modifier l'article</h2>
 
         <form @submit.prevent="submitForm" class="global-form"> 
             <div class="input-group">
@@ -27,8 +27,11 @@
 
             <div class="btn-box">
                 <router-link class="form-btn" to="/posts">Retour</router-link>
-                <button class="form-btn success" type="submit">Enregistrer</button>
+                <button class="form-btn success" type="submit">Modifier</button>
                 <button class="form-btn danger" type="button" @click="publishPost()">Publier</button>
+                <button class="form-btn danger" type="button" @click="deletePost(form.id)">
+                    <i class="fas fa-trash"></i>
+                </button>
             </div>
         </form>
     </main>
@@ -39,16 +42,17 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios'
 
 export default {
-    name: 'NewPost',
+    name: 'UpdatePost',
     data() {
         return {
             editor: ClassicEditor,
             images: null,
             form: {
+                id: '',
                 title: '',
                 subtitle: '',
                 content: '',
-                image_id: ''
+                image_id: null
             }
         }
     },
@@ -58,10 +62,21 @@ export default {
         .then(response => {
             this.images = response.data
         })
+
+        axios
+        .get(`http://localhost:5000/posts/drafts/${this.$route.params.id}`)
+        .then(response => {
+            this.form.title = response.data.title;
+            this.form.subtitle = response.data.subtitle;
+            this.form.image_id = response.data.id_image;
+            this.form.content = response.data.content;
+            this.form.id = response.data.id;
+        })
     },
     methods: {
         submitForm: function() {
-            let newPostForm = {
+            let updateDraftForm = {
+                id: this.form.id,
                 title: this.form.title,
                 subtitle: this.form.subtitle,
                 content: this.form.content,
@@ -73,7 +88,7 @@ export default {
             'Content-Type': 'application/json'
             }
 
-            axios.post('http://localhost:5000/posts/drafts/save', newPostForm, { headers: headers })
+            axios.post('http://localhost:5000/posts/drafts/save', updateDraftForm, { headers: headers })
             .then(() => {
                 this.$router.push({path: '/posts'});
             })
@@ -83,7 +98,7 @@ export default {
         },
 
         publishPost: function() {
-            let newPostForm = {
+            let publishPostForm = {
                 title: this.form.title,
                 subtitle: this.form.subtitle,
                 content: this.form.content,
@@ -96,12 +111,26 @@ export default {
             }
 
             if (confirm('Êtes-vous sûr de vouloir publier cet article ? Il sera immédiatement visible sur votre site')) {
-                axios.post('http://localhost:5000/posts/save', newPostForm, { headers: headers })
+                axios.post('http://localhost:5000/posts/save', publishPostForm, { headers: headers })
                 .then(() => {
-                    this.$router.push({path: '/posts'});
+                    axios
+                    .delete(`http://localhost:5000/posts/drafts/delete/${this.$route.params.id}`)
+                    .then(() => {
+                        this.$router.push({path: '/posts'});
+                    })
                 })
                 .catch((error) => {
                     console.log(error);
+                })
+            }
+        },
+
+        deletePost: (id) => {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible...')) {
+                axios
+                .delete(`http://localhost:5000/posts.drafts/delete/${id}`)
+                .then(() => {
+                    this.$router.push({path: '/posts'});
                 })
             }
         }

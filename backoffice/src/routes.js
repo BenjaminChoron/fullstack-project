@@ -6,6 +6,7 @@ import UserProfile from './components/user/UserProfile'
 import Posts from './components/posts/Posts'
 import NewPost from './components/posts/NewPost'
 import UpdatePost from './components/posts/UpdatePost'
+import UpdateDraft from './components/posts/UpdateDraft'
 import Messages from './components/messages/Messages'
 import MessageDetail from './components/messages/MessageDetail'
 import Projects from './components/projects/Projects'
@@ -52,6 +53,10 @@ export default [
     {
         path: '/posts/update/:id', 
         component: UpdatePost
+    },
+    {
+        path: '/posts/drafts/update/:id', 
+        component: UpdateDraft
     },
     {
         path: '/projects', 

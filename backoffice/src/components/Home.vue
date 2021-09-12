@@ -15,6 +15,10 @@
             </div>
         </div>
 
+        <div class="drafts-resume">
+            <p>Vous avez {{drafts.length}} brouillon(s) d'article(s)</p>
+        </div>
+
         <div class="posts-resume">
             <p>Vous avez {{posts.length}} article(s) publié(s)</p>
         </div>
@@ -34,6 +38,7 @@ export default {
     data() {
         return {
             user: null,
+            drafts: null,
             posts: null,
             projects: null
         }
@@ -43,6 +48,12 @@ export default {
         .get(`http://localhost:5000/users/1`)
         .then(response => {
             this.user = response.data
+        })
+
+        axios
+        .get(`http://localhost:5000/posts/drafts`)
+        .then(response => {
+            this.drafts = response.data
         })
         
         axios
