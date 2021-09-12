@@ -33,6 +33,15 @@
 | Récupérer un article | GET | /posts/:id |
 | Supprimer un article | DELETE | /posts/delete/:id |
 
+### DRAFT
+
+| Rôle | Méthode | URL |
+| ---- | ------- | --- |
+| Créer ou modifier un brouillon d'article | POST | /posts/drafts/save |
+| Récupérer tous les brouillons d'article | GET | /posts/drafts |
+| Récupérer un brouillon d'article | GET | /posts/drafts/:id |
+| Supprimer un brouillon d'article | DELETE | /posts/drafts/delete/:id |
+
 ### PROJECT
 
 | Rôle | Méthode | URL |
