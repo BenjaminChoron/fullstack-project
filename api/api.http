@@ -1,18 +1,14 @@
 @host=http://localhost:5000
 
-### Test
-GET {{host}}/hello
+# ----- USERS
 
 ### All users
 GET {{host}}/users
-
 ### An user
 GET {{host}}/users/1
-
 ### Add user
 POST {{host}}/users/save
 Content-Type: application/json
-
 {
     "first_name": "John",
     "last_name": "Doe",
@@ -20,11 +16,9 @@ Content-Type: application/json
     "password": "123456",
     "avatar_id": 2
 }
-
 ### Update user
 POST {{host}}/users/save
 Content-Type: application/json
-
 {
     "id": 15,
     "first_name": "John",
@@ -33,48 +27,40 @@ Content-Type: application/json
     "password": "azerty",
     "avatar_id": 3
 }
-
 ### Delete user
 DELETE {{host}}/users/delete/15
 
 
 
-
+# ----- MESSAGES
 
 ### All messages
 GET {{host}}/messages
-
 ### A message
 GET {{host}}/messages/1
-
 ### Add message
 POST {{host}}/messages/save
 Content-Type: application/json
-
 {
     "from": "Tim Cook",
     "email": "tim@apple.com",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh."
 }
-
 ### Delete message
 DELETE {{host}}/messages/delete/4
 
 
 
 
-
+# ----- POSTS
 
 ### All posts
 GET {{host}}/posts
-
 ### A post
 GET {{host}}/posts/1
-
 ### Add post
 POST {{host}}/posts/save
 Content-Type: application/json
-
 {
     "title": "Potatoes in Texas",
     "subtitle": "Because nobody talk about it...",
@@ -82,37 +68,63 @@ Content-Type: application/json
     "user_id": 1,
     "image_id": 3
 }
-
 ### Update post
 POST {{host}}/posts/save
 Content-Type: application/json
-
 {
-    "id": 6,
+    "id": 2,
     "title": "Potatoes in Yukon",
     "subtitle": "Because nobody talk about it...",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
     "user_id": 1,
     "image_id": 3
 }
-
 ### Delete post
 DELETE {{host}}/posts/delete/3
 
 
 
+# ----- DRAFTS
 
+### All drafts
+GET {{host}}/posts/drafts
+### A draft
+GET {{host}}/posts/drafts/1
+### Add draft
+POST {{host}}/posts/drafts/save
+Content-Type: application/json
+{
+    "title": "Potatoes in Texas",
+    "subtitle": "Because nobody talk about it...",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "user_id": 1,
+    "image_id": 3
+}
+### Update draft
+POST {{host}}/posts/drafts/save
+Content-Type: application/json
+{
+    "id": 2,
+    "title": "Potatoes in Yukon",
+    "subtitle": "Because nobody talk about it...",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
+    "user_id": 1,
+    "image_id": 3
+}
+### Delete draft
+DELETE {{host}}/posts/drafts/delete/3
+
+
+
+# ----- PROJECTS
 
 ### All projects
 GET {{host}}/projects
-
 ### A project
 GET {{host}}/projects/1
-
 ### Add project
 POST {{host}}/projects/save
 Content-Type: application/json
-
 {
     "title": "The New LinkedIn",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla sollicitudin erat tincidunt pulvinar. Etiam lectus dolor, aliquet a sollicitudin sed, tempor in purus. Mauris ac nulla vel tellus sagittis vestibulum. Nam et magna ut elit lacinia laoreet ac in felis. Maecenas ac tellus neque. Proin sed urna nibh.",
@@ -121,11 +133,9 @@ Content-Type: application/json
     "user_id": 1,
     "image_id": 2
 }
-
 ### Update project
 POST {{host}}/projects/save
 Content-Type: application/json
-
 {
     "id": 3,
     "title": "The New Twitter",
@@ -135,99 +145,78 @@ Content-Type: application/json
     "user_id": 1,
     "image_id": 4
 }
-
 ### Delete project
 DELETE {{host}}/projects/delete/5
 
 
 
 
-
+# ----- AVATARS
 
 ### All avatars
 GET {{host}}/avatars
-
-### A avatar
+### An avatar
 GET {{host}}/avatars/1
-
 ### Add avatar
 POST {{host}}/avatars/save
 Content-Type: application/json
-
 {
     "name": "Test",
     "url": "http://trtsdfgsdgdf.fg/"
 }
-
 ### Delete avatar
 DELETE {{host}}/avatars/delete/5
 
 
 
-
+# ----- IMAGES
 
 ### All images
 GET {{host}}/images
-
-### A image
+### An image
 GET {{host}}/images/1
-
 ### Add image
 POST {{host}}/images/save
 Content-Type: application/json
-
 {
     "name": "Test",
     "url": "http://trtsdfgsdgdf.fg/"
 }
-
 ### Delete image
 DELETE {{host}}/images/delete/5
 
 
 
-
-
+# ----- TECHNOS
 
 ### All technos
 GET {{host}}/technos
-
 ### A techno
 GET {{host}}/technos/1
-
 ### Add techno
 POST {{host}}/technos/save
 Content-Type: application/json
-
 {
     "name": "Test",
     "image": "http://trtsdfgsdgdf.fg/"
 }
-
 ### Delete techno
 DELETE {{host}}/technos/delete/5
 
 
 
-
-
-
+# ----- PROJECT_TECHNO
 
 ### By project
 GET {{host}}/projects/1/technos
-
 ### By techno
 GET {{host}}/technos/1/projects
-
 ### New association
 POST {{host}}/projects/technos/save
 Content-Type: application/json
-
 {
     "project_id": 1,
     "techno_id": 3
 }
-
 ### Delete association
 DELETE {{host}}/projects/1/technos/2/delete
-
